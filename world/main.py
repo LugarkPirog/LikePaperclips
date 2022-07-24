@@ -1,14 +1,16 @@
 from game.engine import Engine
-from agent.random_agent import RandomAgent
+from game.agent_interface.engine_interface import EngineRLInterface
+from agent import BanditAgent, RandomAgent
 
 
 if __name__ == '__main__':
-    e = Engine()
-    agent = RandomAgent(len(e.actions))
+    e = EngineRLInterface()
+    agent = BanditAgent(len(e.actions))
 
-    for i in range(10):
+    for i in range(100):
         act = agent.predict(e.state)
-        e(act)
+        state, reward = e(act)
+        agent.update(act, reward)
 
-    print(e)
+    print(e.engine)
 

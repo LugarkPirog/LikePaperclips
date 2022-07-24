@@ -1,5 +1,7 @@
 import numpy as np
 
+from common import StatTracer
+
 
 class CostMaker:
     def __init__(self):
@@ -10,7 +12,10 @@ class CostMaker:
 
         self.steps = 0
 
+        self.st = StatTracer()
+
     def update(self):
+        self.st.log('update')
         self.steps += 1
         if np.random.random() < self.p_change:
             self.cost = np.random.randn() * self.std + self.mean
