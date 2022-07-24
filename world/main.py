@@ -12,5 +12,4 @@ if __name__ == '__main__':
         state, reward = e(act)
         agent.update(act, reward)
 
-    print(e.engine)
 
