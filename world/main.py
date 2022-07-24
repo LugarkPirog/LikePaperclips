@@ -1,6 +1,5 @@
-from game.engine import Engine
-from game.agent_interface.engine_interface import EngineRLInterface
-from agent import BanditAgent, RandomAgent
+from game import EngineRLInterface
+from agent import BanditAgent
 
 
 if __name__ == '__main__':
